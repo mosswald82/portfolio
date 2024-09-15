@@ -115,7 +115,9 @@ public class ExtractorUtils
     // Date formatters with case-insensitive support for Canada
     private static final DateTimeFormatter[] DATE_FORMATTER_CANADA = { //
                     createFormatter("LLL d, yyyy", Locale.CANADA), //
-                    createFormatter("LLL dd, yyyy", Locale.CANADA) };
+                    createFormatter("LLL. d, yyyy", Locale.CANADA), //
+                    createFormatter("LLL dd, yyyy", Locale.CANADA), //
+                    createFormatter("LLL. dd, yyyy", Locale.CANADA) };
 
     // Date formatters with case-insensitive support for Canadian French
     private static final DateTimeFormatter[] DATE_FORMATTER_CANADA_FRENCH = { //
@@ -388,7 +390,8 @@ public class ExtractorUtils
         value = value.replaceAll("(?i)\\bMrz\\b", "Mär");
 
         Locale[] locales = hints.length > 0 ? hints
-                        :  new Locale[] { Locale.GERMANY, Locale.FRENCH, Locale.US, Locale.CANADA, Locale.CANADA_FRENCH, Locale.UK };
+                        : new Locale[] { Locale.GERMANY, Locale.FRENCH, Locale.US, Locale.CANADA, Locale.CANADA_FRENCH,
+                                        Locale.UK };
 
         for (Locale l : locales)
         {
