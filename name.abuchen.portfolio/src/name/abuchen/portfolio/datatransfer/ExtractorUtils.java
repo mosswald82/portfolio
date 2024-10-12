@@ -279,7 +279,8 @@ public class ExtractorUtils
 
     public static long convertToNumberLong(String value, Values<Long> valueType, String language, String country)
     {
-        DecimalFormat newNumberFormat = (DecimalFormat) NumberFormat.getInstance(new Locale(language, country));
+        DecimalFormat newNumberFormat = (DecimalFormat) NumberFormat
+                        .getInstance(Locale.forLanguageTag(language + "-" + country));
 
         /**
          * @formatter:off
@@ -351,7 +352,8 @@ public class ExtractorUtils
          */
         value = trim(value).replaceAll("\\s", "");
 
-        DecimalFormat newNumberFormat = (DecimalFormat) NumberFormat.getInstance(new Locale(language, country));
+        DecimalFormat newNumberFormat = (DecimalFormat) NumberFormat
+                        .getInstance(Locale.forLanguageTag(language + "-" + country));
 
         if ("CH".equals(country))
         {
